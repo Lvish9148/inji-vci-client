@@ -34,4 +34,3 @@ data class IssuerMetadataResult(
     private fun proofTypesSupported(credentialConfigurationId: String): Map<*, *>? {
         return credentialConfiguration(credentialConfigurationId)?.get("proof_types_supported") as? Map<*, *>
     }
-}

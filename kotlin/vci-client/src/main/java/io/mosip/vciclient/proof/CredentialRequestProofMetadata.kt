@@ -17,6 +17,8 @@ internal data class ProofBindingContext(
     val cryptographicBindingMethodsSupported: List<String> = emptyList(),
     val proofTypesSupported: List<String> = emptyList(),
 ) {
+    val isHolderBindingRequired: Boolean
+        get() = cryptographicBindingMethodsSupported.isNotEmpty() && proofTypesSupported.isNotEmpty()
     fun toCredentialRequestProofMetadata(credentialIssuer: String, nonce: String?): CredentialRequestProofMetadata = CredentialRequestProofMetadata(
         credentialIssuer = credentialIssuer,
         nonce = nonce,

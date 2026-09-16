@@ -142,7 +142,7 @@ class CredentialOfferFlowHandler internal constructor(
         val result = executeDownloadCredentials(
             credentialOffer = credentialOffer,
             onCheckIssuerTrust = onCheckIssuerTrust,
-        ) { offer, issuerMetadataResponse, credentialConfigurationId, proofBindingContext ->
+        ) { offer, issuerMetadataResponse, credentialConfigurationId, proofBindingContext->
             if (offer.isPreAuthorizedFlow()) {
                 preAuthFlowService.requestCredentialsDraft13(
                     issuerMetadata = issuerMetadataResponse.issuerMetadata,
