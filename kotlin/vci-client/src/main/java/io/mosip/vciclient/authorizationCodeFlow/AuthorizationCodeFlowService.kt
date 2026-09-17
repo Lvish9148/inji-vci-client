@@ -62,7 +62,7 @@ internal class AuthorizationCodeFlowService(
             traceabilityId = traceabilityId,
             dpopManager = dpopManager,
         ) { token ->
-            val proofs = if (proofBindingContext.isHolderBindingRequired) {
+            val proofs = if (proofBindingContext.requiresProof) {
             val nonce = resolveNonce(
                 issuerMetadata = issuerMetadata,
                 timeoutInMillis = downloadTimeOutInMillis,
@@ -118,7 +118,7 @@ internal class AuthorizationCodeFlowService(
             traceabilityId = traceabilityId,
             dpopManager = dpopManager,
         ) { token ->
-            val proof = if (proofBindingContext.isHolderBindingRequired) {
+            val proof = if (proofBindingContext.requiresProof) {
                 val nonce = NonceService.extractNonceFromTokenResponse(token)
                 val jwt = try {
                     getProofJwt(
